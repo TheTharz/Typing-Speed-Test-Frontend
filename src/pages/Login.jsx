@@ -1,10 +1,13 @@
 import React from 'react';
+import TypewriterAnimation from '../components/TypeWriterAnimation';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className='w-full h-screen flex flex-row items-center justify-center gap-8 bg-lightgray font-default'>
       {/* container of left side */}
-      <div className='m-4 p-4 bg-darkbackground rounded-lg w-[500px] text-yellow'>
+      <div className='m-4 p-4 bg-darkbackground rounded-lg w-[400px] text-yellow'>
         <div className='p-2'>
           <h3 className='text-2xl font-light'>Welcome!</h3>
           <p className='text-3xl font-medium pt-6 pb-2'>Sign in to</p>
@@ -50,18 +53,22 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className='flex flex-row justify-center text-base gap-1'>
+        <div className='flex flex-row justify-center gap-1 text-xs'>
           <p className='text-lightgray font-light'>Don't have an account?</p>
-          <p className='text-yellow font-semibold'>Register Now</p>
+          <p
+            className='text-yellow font-semibold cursor-pointer'
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            Register Now
+          </p>
         </div>
       </div>
 
       {/* container of right side */}
       <div className='w-[500px]'>
-        <p>
-          Redefine Your <br /> Typing Velocity: <br /> Where Words <br /> Meet
-          Warp <br /> Speed
-        </p>
+        <TypewriterAnimation />
       </div>
     </div>
   );
