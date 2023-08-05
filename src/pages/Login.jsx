@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TypewriterAnimation from '../components/TypeWriterAnimation';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+
   return (
     <div className='w-full h-screen flex flex-row items-center justify-center gap-8 bg-lightgray font-default'>
       {/* container of left side */}
