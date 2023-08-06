@@ -1,9 +1,27 @@
 import React from 'react';
 import TypeWriterAnimationSignUp from '../components/TypeWriterAnimationSignUp';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import validation from '../constants/validation';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [data, setData] = useState({
+    email: '',
+    username: '',
+    password: '',
+    confirm_password: '',
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleInput = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  function handleValidation(e) {
+    e.preventDefault();
+    setErrors(validation(data));
+  }
 
   return (
     <div className='w-full h-screen flex flex-row items-center justify-center gap-8 bg-lightgray font-default'>
@@ -15,46 +33,64 @@ const Signup = () => {
           <p className='text-[16px] font-regular'>Speed, Type, Excel</p>
         </div>
         <div className='py-4 px-2 text-[16px]'>
-          <form>
-            <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='email'>E-mail</label>
+          <form onSubmit={handleValidation}>
+            <div className='flex flex-col gap-1 py-2'>
+              <label htmlFor='email'>E-mail</label>
               <input
                 type='email'
                 name='email'
                 id='email'
                 placeholder='Enter your email'
+                onChange={handleInput}
                 className='border rounded px-4 py-2 border-border text-white focus:outline-none focus:border-lightgray bg-darkbackground'
               />
+              {errors.email && (
+                <p className='text-red-500 text-xs'>{errors.email}</p>
+              )}
             </div>
-            <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='username'>User name</label>
+            <div className='flex flex-col gap-1 py-2'>
+              <label htmlFor='username'>User name</label>
               <input
                 type='text'
                 name='username'
                 id='username'
                 placeholder='Enter your username'
+                onChange={handleInput}
                 className='border rounded px-4 py-2 border-border text-white focus:outline-none focus:border-lightgray bg-darkbackground'
               />
+              {errors.username && (
+                <p className='text-red-500 text-xs'>{errors.username}</p>
+              )}
             </div>
-            <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='password'>Password</label>
+            <div className='flex flex-col gap-1 py-2'>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 name='password'
                 id='password'
                 placeholder='Enter your password'
+                onChange={handleInput}
                 className='border rounded px-4 py-2 border-border text-white focus:outline-none focus:border-lightgray bg-darkbackground'
               />
+              {errors.password && (
+                <p className='text-red-500 text-xs'>{errors.password}</p>
+              )}
             </div>
-            <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='confirmPassword'>Confirm Password</label>
+            <div className='flex flex-col gap-1 py-2'>
+              <label htmlFor='confirmPassword'>Confirm Password</label>
               <input
                 type='password'
-                name='confirmPassword'
-                id='password'
+                name='confirm_password'
+                id='confirmpassword'
                 placeholder='Confirm your password'
+                onChange={handleInput}
                 className='border rounded px-4 py-2 border-border text-white focus:outline-none focus:border-lightgray bg-darkbackground'
               />
+              {errors.confirm_password && (
+                <p className='text-red-500 text-xs'>
+                  {errors.confirm_password}
+                </p>
+              )}
             </div>
 
             <div className='flex w-full justify-center items-center'>

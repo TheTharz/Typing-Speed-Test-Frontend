@@ -17,7 +17,7 @@ const Login = () => {
         <div className='py-4 px-2 text-[16px]'>
           <form>
             <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='email'>E-mail</label>
+              <label htmlFor='email'>E-mail</label>
               <input
                 type='email'
                 name='email'
@@ -27,7 +27,7 @@ const Login = () => {
               />
             </div>
             <div className='flex flex-col gap-1 my-2 py-2'>
-              <label for='password'>Password</label>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 name='password'
@@ -39,7 +39,7 @@ const Login = () => {
             <div className='flex flex-row justify-between items-center text-[12px]'>
               <div className='font-light space-x-1 flex items-center'>
                 <input type='checkbox' />
-                <label for='rememberMe'>Remember me</label>
+                <label htmlFor='rememberMe'>Remember me</label>
               </div>
               <p className='text-lightgray'>Forgot Password?</p>
             </div>
