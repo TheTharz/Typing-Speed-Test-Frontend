@@ -3,6 +3,8 @@ import TypeWriterAnimationSignUp from '../components/TypeWriterAnimationSignUp';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import validation from '../constants/validation';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -18,9 +20,32 @@ const Signup = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  function handleValidation(e) {
+  async function handleValidation(e) {
     e.preventDefault();
-    setErrors(validation(data));
+    const validationErrors = validation(data);
+    console.log(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      const { email, username, password } = data;
+      try {
+        const user = await axios.post('/register', {
+          email,
+          username,
+          password,
+        });
+
+        if (user.error) {
+          console.log(user.error);
+        } else {
+          console.log(user);
+          setData({});
+          navigate('/');
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    setErrors(validationErrors);
   }
 
   return (
