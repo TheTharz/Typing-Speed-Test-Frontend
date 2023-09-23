@@ -26,5 +26,5 @@ const TypeWriterAnimation = () => {
     </div>
   );
 };
-
+//export the required animation
 export default TypeWriterAnimation;
