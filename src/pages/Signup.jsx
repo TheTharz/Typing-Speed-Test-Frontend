@@ -39,7 +39,7 @@ const Signup = () => {
         } else {
           console.log(user);
           setData({});
-          navigate('/');
+          navigate('/login');
         }
       } catch (err) {
         console.log(err);
@@ -133,7 +133,7 @@ const Signup = () => {
           <p
             className='text-yellow font-semibold cursor-pointer'
             onClick={() => {
-              navigate('/');
+              navigate('/login');
             }}
           >
             Login Now
