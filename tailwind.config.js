@@ -3,7 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      default: ['Poppins', 'sans-serif'],
+      default: ['Roboto Mono', 'monospace'],
     },
     extend: {
       colors: {
@@ -12,6 +12,8 @@ export default {
         darkgray: '#2C2E31',
         darkbackground: '#323437',
         border: '#282828',
+        text: '#d1d0c5',
+        error: '#ca4754',
       },
     },
   },
