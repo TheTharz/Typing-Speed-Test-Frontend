@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Error from './pages/Error';
 import axios from 'axios';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 
 axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.withCredentials = true;
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/home' element={<h1>Home</h1>} />
+        <Route path='/home' element={<HomePage />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </Router>
