@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .correct {
+    color: theme('colors.text');
+  }
+  .incorrect {
+    color: theme('colors.error');
+  }
+}

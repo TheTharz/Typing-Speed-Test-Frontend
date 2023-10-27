@@ -7,7 +7,7 @@ const NavBar = () => {
     navigate('/login');
   };
   return (
-    <div className='flex flex-row gap-5 p-8 items-center justify-between'>
+    <div className='flex flex-row gap-5 p-8 items-center justify-between text-text'>
       <div className='flex flex-row gap-5 items-center'>
         <img src={Logo} width={100} height={100} alt='logo' />
         <div>
